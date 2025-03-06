@@ -14,6 +14,7 @@ const port = 3000;
 app.use(express.json());
 app.use(router);
 
+// Caso o servidor esteja funcionando, vai ser exibido no Terminal este console.log()
 app.listen(port, () => {
   console.log("API está sendo rodada em ", port);
 });

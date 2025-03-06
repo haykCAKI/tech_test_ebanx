@@ -125,6 +125,7 @@ const reset = () => {
   accounts = {};
 };
 
+//importando os módulos de accountService
 module.exports = {
   getAccount,
   deposit,
