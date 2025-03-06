@@ -4,19 +4,19 @@ Meu nome é **Herick Akio Yoshii Kumata**, e esse é o meu teste técnico para a
 
 ---
 
-## 📋 Descrição do Projeto
+## 👋 Descrição do Projeto
 
 Este projeto é uma API simples desenvolvida em **Node.js** para simular operações bancárias básicas, como depósito, saque e transferência entre contas. A API foi construída seguindo as especificações fornecidas no teste técnico.
 
 ---
 
-## 🛠 Tecnologias Utilizadas
+## 🛠️ Tecnologias Utilizadas
 
 - **Linguagem**: JavaScript
 - **Runtime**: Node.js
 - **Formato de Dados**: JSON
 - **Framework**: Express
-- **Bibliotecas**: 
+- **Bibliotecas**:
   - `express`: Para criar o servidor e gerenciar rotas.
   - `body-parser`: Para processar o corpo das requisições em JSON.
 
@@ -27,117 +27,134 @@ Este projeto é uma API simples desenvolvida em **Node.js** para simular operaç
 ### Pré-requisitos
 
 - Node.js instalado (versão 14 ou superior).
-- NPM para gerenciar dependências.
+- NPM ou Yarn para gerenciar dependências.
 
-## Passos para Execução
+### Passos para Execução
 
 1. **Clone o repositório**:
    ```bash
    git clone https://github.com/haykCAKI/tech_test_ebanx.git
-    ```
+   ```
+2. **Instale as dependências**:
+   ```bash
+   npm install -y
+   ```
+3. **Instale as dependências**:
+   ```bash
+   npm install express
+   ```
+4. **Inicie o servidor**:
+   ```bash
+   node index.js
+   ```
+---
 
-### Instale as dependências:
+## 🌐 Expondo o Servidor com Ngrok
 
+Para testar a API em ambientes externos, utilizei o Ngrok.
 
-```bash
-  npm install -y
-```
-```bash
+### Passos para Usar o Ngrok
+
+1. **Instale o Ngrok**:
+
+   - Baixe e instale o Ngrok a partir do site oficial: [https://ngrok.com/download](https://ngrok.com/download).
+
+2. **Inicie o Ngrok**:
+
+   ```bash
+   ngrok http 3000
+   ```
+
+3. **Obtenha o Link Público**:
+
+   - O Ngrok gerará um link público, como `https://abcd1234.ngrok.io`. Use esse link para acessar a API.
+
+4. **Teste no Ambiente Externo**:
+
+   - No site `ipkiss.pragmazero.com`, insira o link do Ngrok seguido da rota `/event`, por exemplo:
+     ```
+     https://abcd1234.ngrok.io/event
+     ```
+
+---
+
+## 🛡️ Caso Encontre Erros
+
+Se ocorrer algum erro ao executar o projeto, siga os passos abaixo:
+
+- Verifique se o express está instalado:
+  ```bash
   npm install express
-```
+  ```
+- Se o `package.json` não existir, crie um:
+  ```bash
+  npm init -y
+  ```
+- Reinstale as dependências:
+  ```bash
+  npm install
+  ```
 
-### Inicie o servidor:
-```bash
-node index.js
-```
-# 🛑 Caso Encontre Erros
-## Se ocorrer algum erro ao executar o projeto, siga os passos abaixo:
+---
 
-### Verifique se o express está instalado:
-```bash
-npm install express
-```
-### Se o package.json não existir, crie um:
-```bash
-npm init -y
-```
-### Reinstale as dependências:
-```bash
-npm install
-```
-# 📂 Estrutura do Projeto
+## 📚 Estrutura do Projeto
 
-```bash
-  /ebanx_api
-    /src
-      /controllers
-        balanceControllers.js
-        eventControllers.js
-        resetControllers.js
-      /routes
-        routes.js
-      /services
-        accountService.js
+```
+/ebanx_api
+  /src
+    /controllers
+      balanceControllers.js
+      eventControllers.js
+      resetControllers.js
+    /routes
+      routes.js
+    /services
+      accountService.js
   index.js
-  
-```
-# 🧪 Testes
-## Antes de realizar os testes automatizados, utilizei o Postman para verificar se as rotas e os retornos estavam de acordo com o solicitado. Todos os endpoints foram testados manualmente para garantir o funcionamento correto.
-
-## Casos de Teste
-### Resetar o estado inicial:
-
-## POST /event
-### Criar uma conta com saldo inicial:
-``` bash
-    {
-      "type": "deposit",
-      "destination": "100",
-      "amount": 10
-    }
-```
-## POST /event
-### Realizar um depósito em uma conta existente:
-``` bash
-    {
-      "type": "deposit",
-      "destination": "100",
-      "amount": 10
-    }
-```
-## GET /balance
-### GET /balance?account_id=100
-### Consultar o saldo de uma conta:
-```bash
-  http://localhost:3000/balance?account_id=100
 ```
 
-## Realizar um saque:
-### POST /event
-```bash
-  {
-  "type": "withdraw",
-  "origin": "100",
-  "amount": 5
-}
-```
-## POST /event
-### Realizar uma transferência entre contas:
-```bash
-    {
-    "type": "transfer",
-    "origin": "100",
-    "amount": 15,
-    "destination": "300"
-  }
-```
+---
 
-#📝 Considerações Finais
-## Documentação no Código: 
-### Todos os arquivos estão devidamente comentados para facilitar o entendimento da lógica implementada.
+## 🧪 Testes
 
-## Testes Automatizados: 
-#### Utilizei o site ipkiss.pragmazero.com para validar os testes automatizados.
+Todos os endpoints foram testados manualmente com o Postman e validados no site `ipkiss.pragmazero.com`.
 
-## 🙌 Agradecimentos
-Agradeço à equipe da EBANX pela oportunidade de participar deste processo seletivo. Espero que este projeto atenda às expectativas e demonstre minhas habilidades como desenvolvedor.
+### Casos de Teste
+
+1. **Resetar o estado inicial**:
+   ```http
+   POST /reset
+   ```
+2. **Criar uma conta com saldo inicial**:
+   ```json
+   {
+     "type": "deposit",
+     "destination": "100",
+     "amount": 10
+   }
+   ```
+3. **Consultar saldo**:
+   ```http
+   GET /balance?account_id=100
+   ```
+4. **Realizar um saque**:
+   ```json
+   {
+     "type": "withdraw",
+     "origin": "100",
+     "amount": 5
+   }
+   ```
+5. **Transferência entre contas**:
+   ```json
+   {
+     "type": "transfer",
+     "origin": "100",
+     "amount": 15,
+     "destination": "300"
+   }
+   ```
+
+---
+Agradeço à equipe da **EBANX** pela oportunidade de participar deste processo seletivo. Espero que este projeto atenda às expectativas e demonstre minhas habilidades como desenvolvedor.
+
