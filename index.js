@@ -1,3 +1,5 @@
+//Código feito por Herick Akio Yoshii Kumata
+
 // Importação do framework express (Node.js) -> utilizado para facilitar a criação de servidores webs e API's;
 // E das routes que estão dentro da pasta routes;
 const express = require("express");

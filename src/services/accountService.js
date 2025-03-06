@@ -24,7 +24,7 @@ const getAccount = (id) => accounts[id] || null;
  * }
  */
 const deposit = (id, amount) => {
-  //caso for "false", ele retorna uma conta nova, adicionado um saldo de zero;
+  //caso for "false", ele retorna uma conta nova adicionado um saldo de zero;
   if (!accounts[id]) {
     accounts[id] = { id, balance: 0 };
   }
@@ -96,7 +96,7 @@ const transfer = (originId, amount, destinationId) => {
     return null;
   }
 
-  //Verificando se a conta que averá uma transação se a destinatário existir
+  //Verificando se a conta que averá uma transação
   if (!accounts[destinationId]) {
     accounts[destinationId] = { id: destinationId, balance: 0 };
   }
