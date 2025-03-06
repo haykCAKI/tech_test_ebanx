@@ -7,11 +7,20 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "keywords": [],
   "dependencies": {
     "express": "^4.21.2",
     "ngrok": "^5.0.0-beta.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haykCAKI/tech_test_ebanx.git"
+  },
+  "bugs": {
+    "url": "https://github.com/haykCAKI/tech_test_ebanx/issues"
+  },
+  "homepage": "https://github.com/haykCAKI/tech_test_ebanx#readme"
 }
