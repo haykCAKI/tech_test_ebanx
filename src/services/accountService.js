@@ -96,7 +96,7 @@ const transfer = (originId, amount, destinationId) => {
     return null;
   }
 
-  //Verificando se a conta que averá uma transação
+  //Verificando se a conta haverá uma transação
   if (!accounts[destinationId]) {
     accounts[destinationId] = { id: destinationId, balance: 0 };
   }
