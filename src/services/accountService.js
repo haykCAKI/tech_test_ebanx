@@ -92,7 +92,11 @@ const withdraw = (id, amount) => {
  */
 const transfer = (originId, amount, destinationId) => {
   //Verificando se a conta existe e se existe a possibilidade de ter uma transação
-  if (!accounts[originId] || accounts[originId] < amount) {
+  if (
+    !accounts[originId] ||
+    accounts[originId].balance < amount ||
+    accounts[originId].balance < 0
+  ) {
     return null;
   }
 
