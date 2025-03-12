@@ -10,6 +10,9 @@ const handleEvent = (req, res) => {
   //Criação da conta com o balanço Inicial
   if (type === "deposit") {
     const account = accountService.deposit(destination, amount);
+    if (!account || amount <= 0) {
+      return res.status(404).json(0);
+    }
 
     //Retorna a Resposta 201 {"destination": {"id":"100", "balance":10}}
     return res.status(201).json({ destination: account });
@@ -20,7 +23,7 @@ const handleEvent = (req, res) => {
     const account = accountService.withdraw(origin, amount);
 
     //Retorna 404 0 Caso não exista a conta
-    if (!account) {
+    if (!account || amount <= 0) {
       return res.status(404).json(0);
     }
 
@@ -33,7 +36,7 @@ const handleEvent = (req, res) => {
     const account = accountService.transfer(origin, amount, destination);
 
     //Retorna 404 0 Caso não exista a conta
-    if (!account) {
+    if (!account || amount <= 0) {
       return res.status(404).json(0);
     }
 
